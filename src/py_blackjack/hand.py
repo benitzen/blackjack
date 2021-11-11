@@ -1,7 +1,6 @@
 import random
 
 official_deck = []
-hand = []
 
 
 def full_deck():
@@ -47,40 +46,33 @@ official_deck = n_shuffled_decks(2)
 # assumes you have an official deck
 def deal():
     dealt_hand = official_deck.pop()
+    print(dealt_hand)
     random.shuffle(official_deck)
     return dealt_hand
 
 
 def new_hand():
-    hand.append(deal())
+    return [deal()]
 
 
 def up_card(given_hand):
     return given_hand.pop()
 
 
-def add_card(hand, card):
-    hand.insert(0, card)
+def add_card(given_hand, card):
+    given_hand.insert(0, card)
 
 
-def total(hand):
+def total(given_hand):
     total_num = 0
-    for i in range(len(hand)):
+    for i in range(len(given_hand)):
         if (
-            hand[i][1] == "A"
-            or hand[i][1] == "J"
-            or hand[i][1] == "Q"
-            or hand[i][1] == "K"
+            given_hand[i][1] == "A"
+            or given_hand[i][1] == "J"
+            or given_hand[i][1] == "Q"
+            or given_hand[i][1] == "K"
         ):
             total_num += 10
         else:
-            total_num += int(hand[i][1])
+            total_num += int(given_hand[i][1])
     return total_num
-
-
-print(len(full_deck()))
-print("------------------------------------------------")
-print(len(n_shuffled_decks(2)))
-print("------------------------------------------------")
-print(n_shuffled_decks(2))
-
