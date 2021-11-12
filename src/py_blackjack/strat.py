@@ -2,10 +2,13 @@
 import hand
 
 def stop_at_17(p_hand,opponent_up_card):
-    if hand.total(p_hand) < 17:
-        print (hand.total(p_hand))
-        return True
+    return hand.total(p_hand) < 17
+        
 
+def stop_at_n(n):
+    def main_func(p_hand,h_hand):
+        return hand.total(p_hand)<n
+    return main_func
 
 def dealer_hand(p_hand,h_hand):
     checker = True

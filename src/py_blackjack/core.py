@@ -79,7 +79,10 @@ def play_game2(player_strategy, house_strategy):
             return 1
         else:
             return 0
+
 print ("#### GAME 1 ####")
 print(play_game(stupid_strategy,strat.stop_at_17))
 print ("#### GAME 2 ####")
 print(play_game2(strat.dealer_hand, strat.stop_at_17))
+print("#### GAME 3 ####")
+print(play_game(strat.stop_at_n(17), stupid_strategy))
